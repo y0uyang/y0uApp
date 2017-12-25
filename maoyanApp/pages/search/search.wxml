@@ -1,0 +1,37 @@
+<!--pages/search/search.wxml-->
+<view>
+  <view class='searchInput'>
+    <image src="./../../images/icon/search_icon_gray.png"></image>
+    <input bindconfirm="searchMovie" placeholder-style="font-size:20rpx;" placeholder="找影视剧、影院"  />
+    <text bindtap='back'>取消</text>
+  </view>
+  <view wx:if="{{ searchMovieList.length == 0 }}" class='searchText'>
+    <text>热门搜索</text>
+    <view class='hotSearch'>
+      <text>芳华</text>
+      <text>追龙</text>
+      <text>复仇者联盟3：无限战争</text>
+      <text>缝纫机乐队</text>
+      <text>爱的帕斯卡</text>
+      <text>至爱梵高：星空之谜</text>
+    </view>
+  </view>
+
+  <view wx:for="{{searchMovieList}}" wx:key="{{index}}" class='movieCls'>
+    <image src='http://127.0.0.1:9099/movieImages/{{item.movieImg}}' ></image>
+    <view class='movieInfo'>
+      <text>{{item.chineseName}}</text>
+      <text>{{item.englishName}}</text>
+      <text>{{item.filmType}}</text>
+      <view>
+        <text>{{item.uptime}}</text>
+        <text>{{item.aera}}上映</text>
+      </view>
+    </view>
+    <view class='scoreCls'>
+      <text>{{item.score}}</text>
+      <text>分</text>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,156 @@
+/* pages/buyTicket/buyTicket.wxss */
+.buyTicketTopCls>view:nth-of-type(1){
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx solid #ddd;
+  padding-bottom: 26rpx;
+}
+.buyTicketTextCls{
+  font-size: 30rpx;
+  color: #9b9b9b;
+}
+.buyTicketTextCls>text{
+  margin-left: 10rpx;
+}
+.buyTicketTopCls{
+  padding: 26rpx;
+
+}
+.seatIconCls{
+  display: flex;
+  padding: 20rpx 100rpx 0;
+}
+.seatIconCls>view{
+  flex-grow: 1
+}
+.seatIconCls image{
+  width: 40rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+.seatsCls{
+  border-top: 1rpx solid #c0c0c0;
+  border-bottom: 1rpx solid #c0c0c0;
+  background-color: #f0f0f0;
+  position: relative;
+}
+.videoHallNameCls{
+  position: absolute;
+  display: block;
+  height:0;  
+  top: 0;
+  left: 30%;
+  width:130px;  
+  border-top:20px solid #dcdcdc;  
+  border-left:10px solid transparent;  
+  border-right:10px solid transparent;  
+}
+.name{
+  position: absolute;
+  top: 0;
+  left: 45%;
+  font-size: 28rpx;
+}
+
+.seatsLineCls{
+  display: flex;
+  align-items: center;
+}
+.seat{
+  width: 40rpx;
+  height: 30rpx;
+}
+.allSeatsCls{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx 0 50rpx 20rpx;
+}
+.rowsNumCls{
+  display: flex;
+  flex-direction: column;
+  position: absolute;left: 10rpx;
+  background-color: #c3c3c3;
+  border-radius: 30rpx;
+  align-items:  center;
+  padding: 0 3rpx;
+}
+.rowsNumCls>text{
+  font-size: 28rpx;
+  color:#fff;
+  padding: 6rpx 6rpx;
+}
+
+
+.bottomBoxCls{
+  padding: 18rpx 30rpx;
+}
+.recommend{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+.recommend>text{
+  font-size: 32rpx;
+  color: #737373;
+  margin-bottom: 18rpx;
+}
+.recommend>view{
+  display: flex;
+}
+.recommend>view>text{
+  width: 146rpx;
+  border: 1rpx #dddddd solid;
+  text-align: center;
+  border-radius: 6rpx;
+  margin: 0 10rpx;
+  font-size: 30rpx;
+  padding: 6rpx 0;
+}
+
+
+.confirmChoose{
+  display: flex;
+  align-items: center;
+  padding-top: 16rpx;
+}
+.confirmChoose>text:nth-of-type(1){
+  flex-grow: 1;
+  font-size: 28rpx;
+  color: #999999;
+}
+.confirmChoose>text:nth-of-type(2){
+  padding: 22rpx 48rpx;
+  background-color: #ffd699;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+
+.totalPrice{
+  display: flex;
+  align-items: center;
+  padding-top: 16rpx;
+}
+.totalPrice>view{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.totalPrice>view>text:nth-of-type(1){
+  color: #f04c41;
+  font-size: 40rpx;
+}
+.totalPrice>view>text:nth-of-type(2){
+  color: #dddddd;
+  font-size: 28rpx;
+}
+.totalPrice>text{
+  padding: 22rpx 48rpx;
+  background-color: #ffd699;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}

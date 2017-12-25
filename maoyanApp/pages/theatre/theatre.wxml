@@ -1,0 +1,30 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <view class='theatreTop'>
+    <view bindtap='location' class='location'>
+      <text>成都</text>
+      <text class='triangle'></text>    
+    </view>
+    <icon style="{{isInput ? 'z-index:3':'z-index:1'}}" type="search" size="12" color="#b2b2b2"/>
+    <input bindtap='toSearch' placeholder='{{ isInput ? "找影院":""}}' placeholder-style='{{ isInput ? "text-align:center" : ""}}' bindfocus="inInput" bindinput="inInput" bindconfirm="outInput"></input>
+  </view>
+  <block wx:for="{{theatreList}}" wx:key="index" wx:for-item="theatre">
+    <view bindtap='toTheatreInfo' data-theId='{{theatre._id}}' class='theatreCls'>
+      <view class='theInfoCls'>
+        <view>
+          <text class="itemName">{{theatre.name}}</text>
+          <text>32.5</text>
+          <text>元起</text>
+        </view>
+        <text>{{ theatre.address }}</text>
+        <view>
+          <text wx:for="{{theatre.service}}" wx:for-item="ser" wx:key="{{index}}" class="service {{ser == '小吃' || ser == '折扣卡' ? 'eat' : 'normal'}}">{{ser}}</text>
+        </view>
+      </view>
+      <view class='rangeCls'>
+        <text wx:if="{{theatre.range >= 1000}}">{{ theatre.range/1000 }}km</text>
+        <text wx:if="{{theatre.range < 1000}}">{{ theatre.range }}m</text>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,50 @@
+<view>
+  <view class='locationCls'>
+    <view>定位城市</view>
+    <view><text bindtap='changeCity' data-city="成都">成都</text></view>
+  </view>
+  <view class='locationCls'>
+    <view>最近访问城市</view>
+    <view>
+      <text bindtap='changeCity' data-city='{{item}}' data-location="yes" wx:for="{{visitedCity}}" wx:key="{{index}}">{{item}}</text>
+    </view>
+  </view>
+  <view class='locationCls'>
+    <view>热门城市</view>
+    <view>
+      <text bindtap='changeCity' wx:for="{{hotCity}}" data-city='{{item}}' wx:key="{{index}}">{{item}}</text>
+    </view>
+  </view>
+
+
+
+
+  <!-- 侧边字母栏 -->
+  <view class='aside'>
+    <text>定位</text>
+    <text>最近</text>
+    <text>热门</text>
+    <text>A</text>
+    <text>B</text>
+    <text>C</text>
+    <text>D</text>
+    <text>E</text>
+    <text>F</text>
+    <text>G</text>
+    <text>H</text>
+    <text>J</text>
+    <text>K</text>
+    <text>L</text>
+    <text>M</text>
+    <text>N</text>
+    <text>P</text>
+    <text>Q</text>
+    <text>R</text>
+    <text>S</text>
+    <text>T</text>
+    <text>W</text>
+    <text>X</text>
+    <text>Y</text>
+    <text>Z</text>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+<!--pages/myCard/myCard.wxml-->
+<view class='mycardCls'>
+  <image src='./../../images/images/nothing.jpg'></image>
+  <text>您还没有影院会员卡</text>
+  <text>开通更多影院会员卡</text>
+</view>

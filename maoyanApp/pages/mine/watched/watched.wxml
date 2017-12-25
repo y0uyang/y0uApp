@@ -1,0 +1,23 @@
+<!--pages/mine/watched/watched.wxml-->
+<view>
+  <text class='totalMovieNum'>看过1部电影</text>
+  <view class='bigOneCls'>
+    <view wx:for="{{wantsMovieList}}" wx:key="{{index}}" class='movieCls'>
+      <image src='http://127.0.0.1:9099/movieImages/{{item.movieImg}}' ></image>
+      <view class='movieInfo'>
+        <text>{{item.chineseName}}</text>
+        <view class='myDis'>
+          <text>我评：</text>
+          <view class='starCls'>
+            <image src='./../../../images/images/userStar.png'></image>
+            <image src='./../../../images/images/userStar.png'></image>
+            <image src='./../../../images/images/userStar.png'></image>
+            <image src='./../../../images/images/userStar.png'></image>
+            <image src='./../../../images/images/userStar.png'></image>
+          </view>
+          <text>10分</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

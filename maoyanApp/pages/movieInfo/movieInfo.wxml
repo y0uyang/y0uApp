@@ -1,0 +1,154 @@
+<view>
+  <!-- 电影信息 -->
+  <view class='movieInfoTop'>
+    <image wx:if="{{movieInfo.movieImg}}" src='http://127.0.0.1:9099/movieImages/{{ movieInfo.movieImg }}' class='backgroundIndex'></image>
+    <view class='topContain'>
+      <image wx:if="{{movieInfo.movieImg}}" src='http://127.0.0.1:9099/movieImages/{{ movieInfo.movieImg }}'></image>
+      <view class='topText'>
+        <text class='movieName'>{{ movieInfo.chineseName }}</text>
+        <text class='movieEnglishName'>{{ movieInfo.englishName }}</text>
+        <view>
+          <text class='movieScore'>点映评分{{ movieInfo.score }}</text>
+          <text class='movieDisPeople'>（1.5万人评）</text>
+        </view>
+        <text>{{ movieInfo.wants }}人想看</text>
+        <text>{{ movieInfo.filmType }}</text>
+        <view>
+          <text class='movieAreaCls'>{{ movieInfo.aera }}</text>
+          <text>/{{ movieInfo.duration }}分钟</text>
+        </view>
+        <text>{{ movieInfo.uptime }}大陆上映</text>
+      </view>
+    </view>
+    <view class='btnCla'>
+      <button><image src='{{ !isLike == "true" ? "./../../images/images/wanted.png" : "./../../images/images/want.png" }}'></image>想看</button>
+      <button><image src='{{ isLike == "true" ? "./../../images/images/stared.png" : "./../../images/images/star.png" }}'></image>评分</button>
+    </view>
+  </view>
+  <!-- 彩蛋 -->
+  <view class='surprise'>
+    <image src='./../../images/images/surpries_egg.png'></image>
+    <text>有1个彩蛋，随片尾字幕出现</text>
+  </view>
+  <!-- 电影剧情 -->
+  <view class='movieStoryCls' bindtap='getMoreText'>
+    <text class='{{ getMore ? "":"changeMore"}}'>{{ movieInfo.story }}</text>
+    <image src='{{ getMore ? "./../../images/images/moreText_top.jpg":"./../../images/images/moreText_down.jpg"}}'></image>
+  </view>
+  <!-- 演职人员 -->
+  <view class='castCls'>
+    <text>演职人员</text>
+    <view class='moviePeopleCls'>
+      <view>
+        <image wx:if="{{ movieInfo.director }}" src='http://127.0.0.1:9099/movieImages/{{ movieInfo.director.headImg }}' ></image>
+        <text>{{ movieInfo.director.name }}</text>
+        <text>{{ movieInfo.director.role }}</text>
+      </view>
+      <view wx:for="{{ movieInfo.actor }}" wx:key="index">
+        <image wx:if="{{ item.headImg }}" src='http://127.0.0.1:9099/movieImages/{{ item.headImg }}' ></image>
+        <text>{{ item.name }}</text>
+        <text>{{ item.role }}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 如果上映显示票房信息 -->
+  <view wx:if="{{movieInfo.boxOffice != '暂无'}}" class='castCls'>
+    <text>票房</text>
+    <view class='boxOfficeCls'>
+      <view>
+        <text>{{ yesterday }}</text>
+        <text>昨日票房排行</text>
+      </view>
+      <view>
+        <text style='{{ movieInfo.isUp ? "":"color:#c5c5c5"}}'>{{ !movieInfo.isUP ? movieInfo.boxOffice/500000:"暂无"}}</text>
+        <text>首周票房(万)</text>
+      </view>
+      <view>
+        <view wx:if="{{movieInfo.boxOffice<100000000}}">
+          <text>{{ movieInfo.boxOffice/10000 }}</text>
+          <text>电影票房(万)</text>
+        </view>
+        <view wx:elif="{{movieInfo.boxOffice>100000000}}">
+          <text>{{ movieInfo.boxOffice/100000000 }}</text>
+          <text>电影票房（(亿)</text>
+        </view>
+        <view wx:else>
+          <text>{{ movieInfo.boxOffice }}</text>
+          <text>电影票房(元)</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 剧照 -->
+  <view class='castCls'>
+    <view class='imgsTopCls'>
+      <text>视频和剧照</text>
+      <text>{{ movieInfo.stagePhoto.length }}</text>
+      <image src='./../../images/icon/right_icon_black.png'></image>
+    </view>
+    <view class='staeImagesCls'>
+      <view wx:for="{{ movieInfo.stagePhoto }}" wx:key="{{index}}">
+        <image src="http://127.0.0.1:9099/movieImages/{{ item }}"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 观众评论 -->
+  <view class='peopleDisCls'>
+    <view class='disTopCLs'>
+      <text>观众评论</text>
+      <text>写短评</text>
+    </view>
+    <view class='discussCls' wx:for="{{disList}}" wx:key="index">
+      <image wx:if="{{ item.users[0].headImg}}" src='http://127.0.0.1:9099/images/{{ item.users[0].headImg}}'></image>
+      <view>
+        <view>
+          <text>{{ item.users[0].nickName }}</text>
+          <text wx:if="{{ item.post<= 7 }}" class='{{ !isNaN(item.grade) ? "justPeople":""}}'>点映</text>
+          <text wx:else class='{{ !isNaN(item.grade) ? "justPeopleBuy":""}}'>购</text>
+        </view>
+        <view wx:for="{{ item.user[0].post/0.5 }}">
+          <text>{{index}}</text>
+        </view>
+        <text>{{ item.disText }}</text>
+        <view class='disBottomCls'>
+          <text>{{ item.releaseTime }}</text>
+          <image bindtap='changeGood' data-disId='{{ item._id }}' src='{{ isGoods ? "./../../images/images/goodsed.jpg":"./../../images/images/goods.jpg"}}'></image>
+          <text>{{ item.goods }}</text>
+        </view>
+      </view>
+    </view>
+    <text class='moreDiscussCls'>查看全部{{totalPeople}}条观众评论</text>
+  </view>
+  <!-- 专业评论 -->
+  <view class='peopleDisCls'>
+    <view class='disTopCLs'>
+      <text>专业评论</text>
+    </view>
+    <view class='discussCls' wx:for="{{profList}}" wx:key="index">
+      <image wx:if="{{ item.users[0].headImg}}" src='http://127.0.0.1:9099/images/{{ item.users[0].headImg}}'></image>
+      <view>
+        <view style='{{ isNaN(item.grade) ? "":"display:flex;align-items: flex-end;"}}'>
+          <text style='{{ isNaN(item.grade) ? "":"flex-grow: 1"}}'>{{ item.users[0].nickName }}</text>
+          <text class='profPostCls'>{{ item.post }}</text>
+          <text class='profPostCls littlePost'>分</text>
+        </view>
+        <view>
+          <text class='{{ isNaN(item.grade) ? "":"peopleDisGeadeCls"}}'>{{item.grade}}</text>
+        </view>
+        <text>{{ item.disText }}</text>
+        <view class='disBottomCls'>
+          <text>{{ item.releaseTime }}</text>
+          <image bindtap='changeGood' src='{{ isGoods ? "./../../images/images/goodsed.jpg":"./../../images/images/goods.jpg"}}'></image>
+          <text>{{ item.goods }}</text>
+        </view>
+      </view>
+    </view>
+    <text class='moreDiscussCls'>查看全部{{totalProfession}}条专业评论</text>
+  </view>
+
+
+
+  <view class='bottomHeight'></view>
+  <!-- 优惠购票 -->
+  <text class='buyTicket'>优惠购票</text>
+</view>

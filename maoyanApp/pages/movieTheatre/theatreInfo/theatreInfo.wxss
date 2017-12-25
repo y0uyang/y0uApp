@@ -1,0 +1,314 @@
+/* pages/movieTheatre/movieTheatre/theatreInfo.wxss */
+.theatre_top_title{
+  display: flex;
+  align-items: center;
+  padding: 34rpx;
+  border-bottom: #d8d8d8 1rpx solid; 
+}
+.theatre_name_address{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+.theatre_name_address>text:nth-of-type(1){
+  font-family: SimHei;
+  font-size: 36rpx;
+}
+.theatre_name_address>text:nth-of-type(2){
+  font-size: 28rpx;
+  color: #9b9b9b;
+}
+.theatre_gpsIcon{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-left: 1rpx #e5e5e5 solid;
+  padding-left: 30rpx;
+}
+.theatre_gpsIcon>image{
+  width: 24rpx;
+  height: 30rpx;
+}
+.theatre_gpsIcon>text{
+  color:#999999;
+  font-size: 26rpx; 
+}
+
+
+
+
+
+
+
+
+.movieEasyInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1rpx #dcdcdc solid; 
+  border-top: #d8d8d8 1rpx solid;
+}
+.movieEasyInfo>view:nth-of-type(1){
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10rpx;
+}
+.movieEasyInfo>view:nth-of-type(1)>text:nth-of-type(1){
+  font-size: 36rpx;
+  margin-right: 20rpx;
+  font-family: SimHei;
+}
+.movieEasyInfo>view:nth-of-type(1)>text:nth-of-type(2){
+  color: #ffb400;
+  font-size: 32rpx;
+}
+.movieEasyInfo>view:nth-of-type(1)>text:nth-of-type(3){
+  color: #ffb400;
+  font-size: 26rpx;
+}
+.movieEasyInfo>view:nth-of-type(2){
+  color: #999999;
+  font-size: 32rpx;
+  width: 600rpx;
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow:ellipsis;  
+}
+
+.movieEasyInfo>view:nth-of-type(2)>text{
+  padding:18rpx 10rpx;
+}
+.movieEasyInfo>view:nth-of-type(2)>text:nth-of-type(1){
+  border-right: #adadad 1rpx solid
+}
+.movieEasyInfo>view:nth-of-type(2)>text:nth-of-type(2){
+  border-right: #adadad 1rpx solid
+}
+
+.backgroundIndex{
+  width: 100%;
+  height: 100%;
+  background:fixed rgba(0,0,0,0.3);
+  filter: blur(30px);  
+  position: absolute;
+  z-index: 0
+}
+.movieListCls{
+  height: 300rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.movieListCls>text{
+  width:0;
+  height:0;
+  border-width:0 15rpx 15rpx;
+  border-style:solid;
+  border-color:transparent transparent #fff;
+  position: absolute;
+  bottom: 0;
+  left: 48%;
+  text-align: center;
+  z-index: 6;
+}
+.movieImgBoxCls{
+  display: flex;
+  overflow: scroll;
+  white-space: nowrap; 
+  height: 300rpx;
+}
+.movieListImageCls{
+  height: 200rpx;
+  width: 160rpx;
+  display: inline-block;
+  margin:40rpx 15rpx 0;
+  z-index: 3;
+}
+.isBigMovie{
+  height: 230rpx;
+  width: 200rpx;
+  display: inline-block;
+  margin:30rpx 20rpx 0;
+  z-index: 3;
+}
+.movieListImageCls:nth-of-type(1){
+  margin-left: 38%;
+}
+.movieListImageCls:nth-last-of-type(1){
+  margin-right: 38%;
+}
+
+
+
+.sessionDateCls{
+  display: flex;
+}
+.sessionDateCls>text{
+  display: inline-block;
+  font-size: 30rpx;
+  padding: 30rpx 26rpx;
+}
+.ischeckedDate{
+  border-bottom: 4rpx solid #ef4238;
+  color: #ef4238
+}
+.noSessionCls{
+  height: 300rpx;
+  line-height: 300rpx;
+  width: 100%;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+
+
+
+
+.discountCls{
+  display: flex;
+  align-items: center;
+  background-color: #fff8ee;
+  padding:15rpx 30rpx;
+  border-bottom: #d8d8d8 1rpx solid;
+  border-top: #d8d8d8 1rpx solid;
+}
+.discountCls>image{
+  width: 16rpx;
+  height: 26rpx;
+}
+.discountCls>text:nth-of-type(1){
+  background-color: #ffb400;
+  width: 76rpx;
+  color: #fff;
+  display: inline-block;
+  font-size: 24rpx;
+  padding: 8rpx 12rpx;
+  border-radius: 10rpx;
+}
+.discountCls>text:nth-of-type(2){
+  font-size: 28rpx;
+  margin-left: 12rpx;
+  flex-grow: 1;
+  color: #ffb400;
+}
+.discountCls>text:nth-of-type(3){
+  font-size: 28rpx;
+  margin-left: 12rpx;
+  color: #aaaaaa;
+  margin-right: 10rpx;
+}
+
+
+
+
+.sessionCls{
+  display: flex;
+  margin-left: 26rpx;
+  padding: 30rpx 30rpx 30rpx 0;
+  border-bottom: 1rpx solid #d8d8d8;
+  align-items: flex-end;
+}
+.sessionCls:nth-last-of-type(1){
+  border-bottom: none;
+}
+.sessionCls>view{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: flex-start
+}
+.fontCls{
+  margin-top: 10rpx;
+  color: #999;
+  font-size: 26rpx;
+}
+.others{
+  background-color: #ffb400;
+  border: 1rpx solid #ffb400;
+  color:#fff;
+  font-size: 22rpx;
+  border-top-left-radius:6rpx;
+  border-bottom-left-radius:6rpx;
+  padding: 3rpx 6rpx;
+}
+.maxCls{
+  border: 1rpx solid #ffb400;
+  color:#ffb400;
+  font-size: 22rpx;
+  border-top-right-radius:6rpx;
+  border-bottom-right-radius:6rpx;
+  padding: 3rpx 6rpx;
+}
+.buyBtn{
+  display: inline-block;
+  color: #fff;
+  background-color: #dd403b;
+  padding: 14rpx 30rpx;
+  border-radius: 8rpx;
+  margin-bottom:10rpx;
+  font-size: 28rpx;
+}
+.startTimeCls{
+  font-size: 40rpx;
+}
+.languageCls{
+  font-size: 30rpx;
+}
+.priceCls{
+  color: #ef4238;
+  font-size: 32rpx;
+}
+.yuanCls{
+  color: #ef4238;
+  font-size: 24rpx;
+  margin-right: 10rpx;
+}
+
+
+.comboCls{
+  border-top: 30rpx solid #f5f5f5;
+  
+}
+.comboCls>view>text{
+  margin: 26rpx;
+  display: inline-block;
+}
+.comboContent{
+  display: flex;
+  border-bottom: 1rpx solid #d8d8d8;
+  border-top: 1rpx solid #d8d8d8;
+  margin-left: 26rpx;
+  align-items: center;
+  padding: 26rpx 26rpx 26rpx 0;
+}
+.comboContent>image{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 26rpx;
+}
+
+.comboContent>view{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.comboContentPrice{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.comboContentPrice>text:nth-of-type(1){
+  flex-grow: 1;
+  color: #ef4238;
+  font-size: 34rpx;
+  margin-top: 10rpx;
+}
+.comboContentPrice>text:nth-last-of-type(1){
+  color: #999999;
+  font-size: 30rpx;
+}
+.comboName{
+  font-size: 34rpx;
+}

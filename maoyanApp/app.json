@@ -1,0 +1,46 @@
+{
+  "pages":[
+    "pages/movie/movie",
+    "pages/search/search",
+    "pages/mine/watched/watched",
+    "pages/myCard/myCard",
+    "pages/mine/myWant/myWant",
+    "pages/buyTicket/buyTicket",
+    "pages/movieTheatre/theatreInfo/theatreInfo",
+    "pages/movieInfo/movieInfo",
+    "pages/movieTheatre/movieTheatre",
+    "pages/mine/order/order",
+    "pages/theatre/theatre",
+    "pages/location/location",
+    "pages/mine/mine"
+   
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "color":"#666666",
+    "backgroundColor":"#f7f7fa",
+    "borderStyle":"#ababab",
+    "selectedColor":"#ef4238",
+    "list": [{
+      "pagePath":"pages/movie/movie",
+      "iconPath": "images/icon/mine_03.png",
+      "selectedIconPath": "images/icon/movie_03.png",
+      "text":"电影"
+    },{
+      "pagePath": "pages/theatre/theatre",
+      "iconPath": "images/icon/mine_05.png",
+      "selectedIconPath": "images/icon/theatre_03.png",
+      "text": "影院"
+    },{
+      "pagePath": "pages/mine/mine",
+      "iconPath":"images/icon/theatre_05.png",
+      "selectedIconPath":"images/icon/mine_07.png",
+      "text": "我的"
+    }]
+  }
+}

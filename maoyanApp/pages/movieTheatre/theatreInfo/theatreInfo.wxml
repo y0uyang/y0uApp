@@ -1,0 +1,96 @@
+<view>
+  <view class='theatre_top_title'>
+    <view class='theatre_name_address'>
+      <text>{{theatreInfo.name}}</text>
+      <text>{{theatreInfo.address}}</text>
+    </view>
+    <view class='theatre_gpsIcon'>
+      <image src='./../../../images/images/gps.jpg'></image>
+      <text>地图</text>
+    </view>
+  </view>
+  
+  <view>
+    <view class='movieListCls'>
+      <text></text>
+     <image src='http://127.0.0.1:9099/movieImages/{{backImg}}' class='backgroundIndex'></image>
+     <scroll-view scroll-x="true" bindscroll="scroll" class='movieImgBoxCls'>
+      <view wx:for="{{isUpMovie}}" wx:key="{{index}}" data-num='{{index}}' class="{{currentMovieNum == index ? 'isBigMovie movieListImageCls':'movieListImageCls'}}">
+        <image style='width: 100%;height:100%;' src='http://127.0.0.1:9099/movieImages/{{item.movieImg}}'></image>
+      </view>
+      </scroll-view>
+    
+    </view>
+    <view class='movieEasyInfo'>
+      <view>
+        <text>{{currentMovieInfo.chineseName}}</text>
+        <text>{{ currentMovieInfo.score > 0 ? currentMovieInfo.score : currentMovieInfo.wants}}</text>
+        <text>{{ currentMovieInfo.score > 0 ? "分":"想看"}}</text>
+      </view>
+      <view>
+        <text>{{currentMovieInfo.duration}}分钟</text>
+        <text>{{currentMovieInfo.filmType}}</text>
+        <text>{{currentMovieInfo.actor[0].name}},</text>
+        <text>{{currentMovieInfo.actor[1].name}},</text>
+        <text>{{currentMovieInfo.actor[2].name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='sessionDateCls'>
+    <text bindtap='changeDate' data-num='0' class="{{currentDate == 0 ? 'ischeckedDate':''}}">今天12月21日</text>
+    <text bindtap='changeDate' data-num='1' class="{{currentDate == 1 ? 'ischeckedDate':''}}">明天12月22日</text>
+    <text bindtap='changeDate' data-num='2' class="{{currentDate == 2 ? 'ischeckedDate':''}}">后天12月23日</text>
+  </view>
+
+  <view class='discountCls'>
+    <text>折扣卡</text>
+    <text>购票享低价，首单2张立减4元</text>
+    <text>30元开卡</text>
+    <image src="./../../../images/icon/the_right_icon_black.png"></image>
+  </view>
+
+  <view wx:if="{{sessionListAry.length>0}}" style='border-bottom:#d8d8d8 1rpx solid;'>
+    <view wx:for="{{sessionListAry}}" wx:key="{{index}}" class='sessionCls'>
+      <view>
+        <text class='startTimeCls'>{{ item.startTime }}</text>
+        <text class='fontCls'>{{ item.endTime }}散场</text>
+      </view>
+      <view>
+        <text class='languageCls'>国语{{ item.videoHall[0].type }}</text>
+        <text class='fontCls'>{{ item.videoHall[0].name }}</text>
+      </view>
+      <view>
+        <view>
+          <text class='priceCls'>{{ item.price }}</text>
+          <text class='yuanCls'>元</text>
+          <text class='others'>折扣卡</text>
+          <text class='maxCls'>{{ item.price * .88 }}</text>
+        </view>
+        <text class='fontCls'>折扣卡首单优惠</text>
+      </view>
+      <text class='buyBtn' data-item='{{item}}' catchtap='chooseSeat'>购票</text>
+    </view>
+  </view>
+  <view wx:else class='noSessionCls'>暂未拍片</view> 
+  
+
+  <view class='comboCls'>
+    <view>
+      <text>观影套餐（{{combo.length}}）</text>
+      <view wx:for="{{combo}}" wx:key="{{index}}" class='comboContent'>
+        <image src="./../../../images/images/combo.jpg"></image>
+        <view>
+          <text class='comboName'>{{item.name}}</text>
+          <text class='fontCls'>{{item.text}}</text>
+          <view class='comboContentPrice'>
+            <text>{{item.price}}</text>
+            <!-- <text>影院价：{{item.price}}</text> -->
+            <text>已售6678</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

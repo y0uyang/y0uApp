@@ -1,0 +1,79 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='topNav'>
+    <view bindtap='location' class='location'>
+      <text>{{city}}</text>
+      <text class='triangle'></text>    
+    </view>
+    <view class='movieNav'>
+      <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{ currentTab == index ? 'on' : '' }}" wx:key="unique" bindtap='navbarTap' >{{ item }}</text>
+    </view>
+    <view class='serachBox' bindtap='searchPage'>
+      <image src='./../../images/icon/search_icon.png'></image>
+    </view>
+  </view>
+  <view>
+    <!--热映-->  
+    <view hidden="{{currentTab!==0}}">  
+      <view bindtap='getMovieInfo' wx:for="{{movieList}}" wx:key="{{index}}" data-id='{{item._id}}' class='movieItem' wx:if="{{item.isUp}}" >
+        <image src='http://127.0.0.1:9099/movieImages/{{item.movieImg}}'></image>
+        <view class='movieInfo'>
+          <view>
+            <text>{{ item.chineseName }}</text>
+            <text wx:for="{{item.showType}}" wx:key="{{indx}}" wx:for-index="indx" wx:for-item="itemType" class='{{itemType != "IMAX" ? "others" : "maxCls"}}'>{{itemType}}</text>
+          </view>
+          <text>{{ item.filmType }}</text>
+          <text>主演：<text wx:for="{{ item.actor }}" wx:key="{{idx}}" wx:for-index="idx" wx:for-item="itemName">{{itemName.name}}<text wx:if="{{idx < item.actor.length - 1}}">,</text></text></text>
+          <text>今天{{ item.theatre.length }}家影院放映2324场</text>
+        </view>
+        <view class='buy'>
+          <view>{{item.score}}<text>分</text></view>
+          <text catchtap='movieTheatre' data-id='{{item._id}}' data-movieName='{{item.chineseName}}'>购票</text>
+        </view>
+      </view>
+    </view>  
+    <!--热映-->  
+    <!--待映-->  
+    <view hidden="{{currentTab!==1}}">  
+      <view class='upcomingBest'>
+        <text class='upcomingTitle'>近期最受欢迎</text>
+        <view class="recommend_scroll_x_box">
+          <view class='upcomingMovie' wx:for="{{wantMovieList}}" wx:key="{{index}}" wx:if="{{!item.isUp}}" >
+            <view class='upcomingImage'>
+              <image src='http://127.0.0.1:9099/movieImages/{{item.movieImg}}'></image>
+              <image bindtap='changeLike' data-id='{{item._id}}' src='{{ item.isLike == "true" ? "./../../images/images/wanted.png" : "./../../images/images/want.png" }}'></image>
+            </view>
+            <view class='upcomingText'>
+              <text>{{ item.chineseName }}</text>
+              <text>{{ item.wants }}人想看</text>
+              <text>{{ item.uptime }}</text>          
+            </view>
+          </view>
+        </view>
+      </view>
+
+      
+      <view>
+        
+        <view class='wantMovie'>
+          <text>12月22日 周四</text>
+          <view class='movieItem' >
+            <image src='./../../images/images/movieImg.png'></image>
+            <view class='movieInfo'>
+              <view><text>芳华</text></view>
+              <text>剧情，爱情，战争</text>
+              <text>主演：黄轩，苗苗，钟楚曦</text>
+              <text>2017-12-19大陆上映</text>
+            </view>
+            <view class='buy wants'>
+              <view>290<text>想看</text></view>
+              <text>预售</text>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view> 
+    <!--待映-->  
+  </view>
+</view>

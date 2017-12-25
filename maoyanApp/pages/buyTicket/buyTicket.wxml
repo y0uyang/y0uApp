@@ -1,0 +1,79 @@
+<view class='all'>
+  <view class="buyTicketTopCls">
+      <view>
+          <text>{{theatreName}}</text>
+          <view class='buyTicketTextCls'>
+              <text>{{isToday}}</text>
+              <text>{{month}}月{{date}}日</text>
+              <text>{{sessionMsg.startTime}}</text>
+              <text>国语{{sessionMsg.videoHall[0].type}}</text>
+          </view>
+      </view>
+      <view class='seatIconCls'>
+          <view>
+            <image src='./../../images/icon/seat_fff.png'></image>
+            <text>可选</text>
+          </view>
+          <view>
+            <image src='./../../images/icon/seat_red.png'></image>
+            <text>不可选</text>
+          </view>
+          <view>
+            <image src='./../../images/icon/seat_green.png'></image>
+            <text>已选</text>
+          </view>
+      </view>
+  </view>
+  <view class='seatsCls'>
+    <view class='videoHallNameCls'>
+    </view>
+      <text class='name'>{{ sessionMsg.videoHall[0].name}}</text>
+    <view>
+      <view class='lineCls'>
+        <view class='allSeatsCls'>
+          <view class='rowsNumCls'>
+            <text wx:for="{{ seatsList }}" wx:key="{{index}}">{{ index + 1 }}</text>
+          </view>
+          <view class='seatsLineCls' wx:for="{{ seatsList }}" wx:key="{{ index }}">
+            <view wx:for="{{ item }}" wx:for-item="seat" wx:for-index="cur" wx:key="{{ index }}">
+              <image catchtap='chooseSeat' wx:if="{{ seat.a == 1 && seat.b == 0 }}" data-row='{{ index }}' data-line='{{ cur }}' class='seat' src="./../../images/icon/seat_fff.png"  ></image>
+              <image catchtap='chooseSeat' wx:if="{{ seat.a == 0 }}" data-row='{{ index }}' data-line='{{ cur }}' class='seat' src="" ></image>
+               <image catchtap='chooseSeat' wx:elif="{{ seat.b == 1 }}" data-row='{{ index }}' data-line='{{ cur }}' class='seat' src="./../../images/icon/seat_red.png"></image> 
+               <image catchtap='chooseSeat' wx:elif="{{ seat.b == 2 }}" data-row='{{ index }}' data-line='{{ cur }}' class='seat' src="./../../images/icon/seat_green.png"></image> 
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='bottomBoxCls'>
+    <view wx:if="{{chooseSeats.length == 0}}" class='recommend'>
+      <text>推荐座位</text>
+      <view>
+        <text>1人</text>
+        <text>2人</text>
+        <text>3人</text>
+        <text>4人</text>
+      </view>
+    </view>
+    <view wx:else class='recommend'>
+      <text>已选座位</text>
+      <view>
+        <text catchtap='delChooseSeat' data-seat='{{item}}' wx:for="{{chooseSeats}}" wx:key="{{index}}">{{item}}</text>
+      </view>
+    </view>
+    <view wx:if="{{chooseSeats.length == 0}}" class='confirmChoose'>
+      <text>一次最多购买4张</text>
+      <text>请先选座</text>
+    </view>
+    <view wx:else class='totalPrice'>
+      <view>
+        <text>{{sessionMsg.price*chooseSeats.length}}元</text>
+        <text>{{sessionMsg.price}}x{{chooseSeats.length}}</text>
+      </view>
+      <text>确认选座</text>
+    </view>
+
+  </view>
+</view>

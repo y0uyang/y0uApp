@@ -1,0 +1,20 @@
+<!--pages/mine/myWant/myWant.wxml-->
+<view>
+  <text class='totalMovieNum'>想看1部电影</text>
+  <view wx:for="{{wantsMovieList}}" wx:key="{{index}}" class='movieCls'>
+    <image src='http://127.0.0.1:9099/movieImages/{{item.movieImg}}' ></image>
+    <view class='movieInfo'>
+      <text>{{item.chineseName}}</text>
+      <text>{{item.englishName}}</text>
+      <text>{{item.filmType}}</text>
+      <view>
+        <text>{{item.uptime}}</text>
+        <text>{{item.aera}}上映</text>
+      </view>
+    </view>
+    <view class='scoreCls'>
+      <text>{{item.score}}</text>
+      <text>分</text>
+    </view>
+  </view>
+</view>

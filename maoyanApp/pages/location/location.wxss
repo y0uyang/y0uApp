@@ -1,0 +1,35 @@
+.locationCls>view:nth-of-type(1){
+  background-color: #ebebeb;
+  padding: 10rpx 26rpx;
+  font-size: 26rpx;
+}
+.locationCls>view:nth-of-type(2){
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+  background-color: #f5f5f5;
+}
+.locationCls>view:nth-of-type(2) text{
+  display: inline-block;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  padding: 10rpx 78rpx;
+  margin: 6px;
+  font-size: 24rpx;
+}
+
+
+
+
+.aside{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right:10rpx;
+  top:180rpx;
+  align-items: flex-end;
+  font-size: 22rpx;
+  color:#3c3c3c;
+}
+.aside text{
+  margin-bottom: 3rpx;  
+}

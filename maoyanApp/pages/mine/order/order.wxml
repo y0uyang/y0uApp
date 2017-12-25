@@ -1,0 +1,22 @@
+<!--pages/mine/order/order.wxml-->
+<block>
+  <view>
+    <text>橙天嘉禾影城（富力店）</text>
+    <text></text>
+  </view>
+  <view>
+    <image src='./../../../images/images/upcoming.png'></image>
+    <view>
+      <view>
+        <text>羞羞的铁拳</text>
+        <text>2张</text>
+      </view>
+      <text>2017-11-03 16:25</text>
+      <text>7号厅5排8座，5排7座</text>
+    </view>
+    <view>
+      <text>总价：29.8元</text>
+      <text>已完成</text>
+    </view>
+  </view>
+</block>

@@ -1,0 +1,31 @@
+<view>
+  <view class='items'>
+    <view class='item'>
+      <text>我的订单</text>
+      <image style="" mode="aspectFit" src="./../../images/icon/right_icon_black.png"></image>
+    </view>
+    <view class='item'>
+      <text>优惠券</text>
+      <image style="" mode="aspectFit" src="./../../images/icon/right_icon_black.png"></image>
+    </view>
+    <view catchtap='myCard' class='item'>
+      <text>影院会员卡</text>
+      <image style="" mode="aspectFit" src="./../../images/icon/right_icon_black.png"></image>
+    </view>
+  </view>
+
+  <view class='items'>
+    <view bindtap='myWantMovie' class='item'>
+      <text>想看的电影</text>
+      <image style="" mode="aspectFit" src="./../../images/icon/right_icon_black.png"></image>
+    </view>
+    <view bindtap='watchedMovie' class='item'>
+      <text>看过的电影</text>
+      <image style="" mode="aspectFit" src="./../../images/icon/right_icon_black.png"></image>
+    </view>
+  </view>
+
+  <view class='bottomText'>
+    <text>猫眼电影 客服电话：</text><text bindtap="call">1010-5335</text>
+  </view>
+</view>

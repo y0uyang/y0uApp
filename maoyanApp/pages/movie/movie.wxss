@@ -1,0 +1,223 @@
+/**index.wxss**/
+.topNav{
+  display: flex;
+  padding-left: 30rpx;
+  border-bottom: 1rpx solid #d8d8d8;
+}
+.location{
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  padding: 30rpx 0;
+}
+.location>text:nth-of-type(2){
+  margin-left: 8rpx;
+}
+.triangle{
+  display:block;
+  width:0;
+  height:0;
+  border-width:8rpx 8rpx 0;
+  border-style:solid;
+  border-color:#cacaca transparent transparent;
+}
+
+.movieNav{
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+  padding: 0 110rpx;
+  font-size: 30rpx;
+  font-family: SimHei;
+}
+.movieNav>text{
+  padding: 30rpx 24rpx ;
+}
+
+.serachBox{
+  border-left: 1rpx solid #d8d8d8;
+  display: flex;
+  width:104rpx;
+  justify-content: center;
+  align-items: center;
+}
+.serachBox>image{
+  width: 30rpx;
+  height: 30rpx;
+}
+ 
+.on {  
+  color: #dd403b;  
+  border-bottom: 5rpx solid #dd403b;  
+} 
+
+
+/* 电影 */
+.movieItem{
+  display: flex;
+  padding: 26rpx 20rpx 26rpx 0;
+  margin-left: 20rpx;
+  border-bottom: 1rpx solid #ededed;
+}
+.movieItem>image{
+  width: 160rpx;
+  height: 225rpx;
+}
+.movieInfo{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 28rpx;
+  padding-left: 20rpx;
+  width:210rpx;
+}
+.movieInfo>view{
+  display: flex;
+  align-items: center;
+}
+.movieInfo>view text:nth-of-type(1){
+  font-size: 36rpx;
+  font-family: SimHei;
+  margin-right: 12rpx;
+  max-width:270rpx;
+  display:inline-block;
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow:ellipsis;  
+}
+.movieInfo>text{
+  font-size: 28rpx;
+  font-family: SimHei;
+  color: #666666;
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow:ellipsis;  
+}
+.movieInfo>text:nth-of-type(3){
+  font-size: 28rpx;
+  font-family: SimHei;
+  color: #999999;
+}
+.others{
+  background-color: #8bb7ce;
+  border: 1rpx solid #8bb7ce;
+  color:#fff;
+  font-size: 22rpx;
+  border-top-left-radius:6rpx;
+  border-bottom-left-radius:6rpx;
+  padding: 3rpx 6rpx;
+}
+.maxCls{
+  border: 1rpx solid #8bb7ce;
+  color:#8bb7ce;
+  font-size: 22rpx;
+  border-top-right-radius:6rpx;
+  border-bottom-right-radius:6rpx;
+  padding: 3rpx 6rpx;
+}
+
+
+.buy{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  width: 130rpx;
+  padding-bottom:30rpx;
+}
+.buy view{
+  color: #ffb400;
+}
+.buy view text{
+  font-size: 26rpx;
+}
+.buy>text{
+  color: #fff;
+  background-color: #dd403b;
+  padding: 14rpx 30rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+
+
+
+
+/* 待映 */
+.recommend_scroll_x_box{
+  display: flex;
+  overflow-x: auto;
+}
+.upcomingBest{
+  padding:0 0 30rpx 30rpx;
+  border-bottom: 30rpx #f5f5f5 solid;
+}
+.upcomingTitle{
+  color: #404040;
+  font-size: 30rpx;
+  display: inline-block ;
+  margin: 30rpx 0;
+}
+
+.upcomingMovie{
+  display: flex;
+  flex-direction: column;
+  width: 170rpx;
+  margin: 0 20rpx 0 0;
+  flex-wrap: wrap;
+}
+.upcomingImage{
+  position: relative;
+}
+.upcomingImage image:nth-of-type(1){
+  width: 170rpx;
+  height: 233rpx;
+}
+.upcomingImage image:nth-of-type(2){
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 0;
+  left:0;
+  padding: 15rpx;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.upcomingText{
+  display: flex;
+  flex-direction: column;
+  font-size: 22rpx;
+  color: #999;
+}
+.upcomingText text{
+  margin-bottom: 4rpx;
+  overflow: hidden;  
+  /*文本不换行*/  
+  white-space: nowrap;  
+  /*文字超出用省略号*/  
+  text-overflow:ellipsis;  
+}
+.upcomingText>text:nth-of-type(1){
+  color:#222;
+  font-size: 28rpx;
+}
+
+
+
+
+.wantMovie>text{
+  font-size: 28rpx;
+  display: inline-block;
+  margin: 30rpx 20rpx 0;
+}
+.wants view{
+  color: #ffb400;
+}
+.wants>text{
+  color: #fff;
+  background-color: #52b0eb;
+  padding: 14rpx 30rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}

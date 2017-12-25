@@ -1,0 +1,29 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <view class='theatreTop'>
+    <view class='sessionDateCls'>
+      <text bindtap='changeDate' data-num='0' class="{{currentDate == 0 ? 'ischeckedDate':''}}">今天12月21日</text>
+      <text bindtap='changeDate' data-num='1' class="{{currentDate == 1 ? 'ischeckedDate':''}}">明天12月22日</text>
+      <text bindtap='changeDate' data-num='2' class="{{currentDate == 2 ? 'ischeckedDate':''}}">后天12月23日</text>
+    </view>
+  </view>
+  <block wx:for="{{theatreList}}" wx:key="index" wx:for-item="theatre">
+    <view bindtap='theatreInfo' data-theatre='{{theatre}}' class='theatreCls'>
+      <view class='theInfoCls'>
+        <view>
+          <text class="itemName">{{theatre.name}}</text>
+          <text>32.5</text>
+          <text>元起</text>
+        </view>
+        <text>{{ theatre.address }}</text>
+        <view>
+          <text wx:for="{{theatre.service}}" wx:for-item="ser" wx:key="{{index}}" class="service {{ser == '小吃' || ser == '折扣卡' ? 'eat' : 'normal'}}">{{ser}}</text>
+        </view>
+      </view>
+      <view class='rangeCls'>
+        <text wx:if="{{theatre.range >= 1000}}">{{ theatre.range/1000 }}km</text>
+        <text wx:if="{{theatre.range < 1000}}">{{ theatre.range }}m</text>
+      </view>
+    </view>
+  </block>
+</view>

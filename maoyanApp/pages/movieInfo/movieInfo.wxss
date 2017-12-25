@@ -1,0 +1,358 @@
+/* pages/movieInfo/movieInfo.wxss */
+page{
+  background-color: #f5f5f5;
+}
+.backgroundIndex{
+  width: 100%;
+  height: 100%;
+  background:fixed rgba(0,0,0,0.3);
+  filter: blur(30px);  
+  position: absolute;
+  z-index: 0
+}
+.movieInfoTop{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.topContain{
+  display: flex;
+  margin: 30rpx 35rpx;
+  z-index: 3;
+}
+.topContain>image{
+  width: 240rpx;
+  height: 364rpx;
+  margin-right: 35rpx;
+}
+
+.topText{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.topText text:nth-of-type(n+3){
+  color:#cbcac5;
+  font-size: 34rpx;
+}
+.topText>text:nth-of-type(3){
+  margin: 10rpx 0;
+}
+.topText>view:nth-of-type(2){
+  display: flex;
+  align-items: center;
+  color:#cbcac5;
+  font-size: 34rpx;
+}
+.movieName{
+  font-size: 40rpx;
+  color:#fff; 
+}
+.movieEnglishName{
+  font-size: 28rpx;
+  color:#fff; 
+  margin-bottom: 16rpx;
+}
+.movieScore{
+  font-size: 34rpx;
+  color:#ffc600;
+}
+.movieDisPeople{
+  font-size: 20rpx;
+  color:#cbcac5;
+}
+.movieAreaCls{
+  display: inline-block;
+  max-width: 250rpx;
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow:ellipsis;  
+}
+
+
+.btnCla{
+  display: flex;
+}
+.btnCla image{
+  width: 36rpx;
+  height: 36rpx;
+  padding: 12rpx;
+}
+.btnCla button{
+  flex-grow: 1;
+  margin: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(211,211,211,0.2);
+  color:#fff;
+}
+
+.surprise{
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 20rpx;
+  z-index: 3;
+  margin-top: 26rpx;
+  font-size: 28rpx;
+}
+.surprise>image{
+  width: 44rpx;
+  height: 50rpx;
+  margin-right: 18rpx;
+}
+
+
+.movieStoryCls{
+  padding: 20rpx;
+  margin-top: 26rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30rpx;
+  font-family: SimHei;
+}
+.changeMore{
+  height: 105rpx;
+  overflow: hidden;
+}
+.movieStoryCls image{
+  width: 30rpx;
+  height: 16rpx;
+  margin:20rpx 0 10rpx;
+}
+
+
+.castCls{
+  background-color: #fff;
+  padding: 30rpx 0 30rpx 30rpx;
+  margin-top: 26rpx;
+}
+.castCls>text{
+  display: inline-block;
+  font-size: 30rpx;
+  margin-bottom: 26rpx;
+}
+.moviePeopleCls{
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+}
+.moviePeopleCls image{
+  width:170rpx;
+  height: 220rpx;
+  margin-bottom: 14rpx;
+}
+.moviePeopleCls>view{
+  width:170rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20rpx;
+  font-size: 28rpx;
+}
+.moviePeopleCls>view>text:nth-of-type(2){
+  color: #999;
+  margin-top: 7rpx;
+  font-size: 26rpx;
+}
+.moviePeopleCls>view>text:nth-of-type(1){
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow:ellipsis; 
+}
+
+.boxOfficeCls{
+  display: flex;
+  justify-content: space-around;
+  padding-right: 30rpx;
+}
+.boxOfficeCls view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.boxOfficeCls view text:nth-of-type(1){
+  color: #f34d41
+}
+.notyet{
+  color:#c5c5c5;
+}
+.boxOfficeCls view text:nth-of-type(2){
+  color: #9d9d9d;
+  font-size: 28rpx;
+}
+
+.imgsTopCls{
+  display: flex;
+  align-items: center;
+}
+.imgsTopCls>text:nth-of-type(1){
+  flex-grow: 1;
+  display:inline-block;
+  font-size:30rpx;
+}
+.imgsTopCls>text:nth-of-type(2){
+  font-size:26rpx;
+  color: #a1a1a1;
+}
+.imgsTopCls>image{
+  width: 20rpx;
+  height: 32rpx;
+  margin:0 34rpx 0 18rpx;
+}
+
+.staeImagesCls{
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 30rpx;
+}
+.staeImagesCls image{
+  width: 300rpx;
+  height: 280rpx;
+  margin-right: 18rpx; 
+}
+
+.peopleDisCls{
+  background-color: #fff;
+  padding: 30rpx 0 30rpx 30rpx;
+  margin-top: 26rpx;
+}
+.disTopCLs{
+  display: flex;
+  align-items: center;
+}
+.disTopCLs>text:nth-of-type(1){
+  display: inline-block;
+  flex-grow: 1;
+  font-size: 30rpx
+}
+.disTopCLs>text:nth-of-type(2){
+  display: inline-block;
+  font-size: 26rpx;
+  color: #f0554c;
+  border: 1rpx solid #f0554c;
+  border-radius: 30rpx;
+  padding: 8rpx 18rpx;
+  margin-right: 30rpx;
+}
+
+.discussCls{
+  display: flex;
+  align-items: flex-start;
+  padding-top: 36rpx ;
+}
+.discussCls>image{
+  width:90rpx;
+  height: 90rpx;
+  display: inline-block;
+}
+.discussCls>view{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx solid #dcdcdc;
+  padding:0 36rpx 36rpx 0;
+  margin-left: 20rpx;
+}
+.discussCls>view>text{
+  margin: 34rpx 0 20rpx;
+  color: #3f3f3f;
+  font-size: 32rpx;
+}
+.discussCls>view>view:nth-of-type(1) text:nth-of-type(1){
+  font-size: 32rpx;
+}
+.justPeople{
+  font-size: 24rpx;
+  color: #ffc600;
+  padding: 5rpx 10rpx;
+  border: 1rpx #ffc600 solid;
+  border-radius: 9rpx;
+  margin-left: 16rpx;
+}
+.justPeopleBuy{
+  font-size: 24rpx;
+  color: #52b0eb;
+  padding: 5rpx 10rpx;
+  border: 1rpx #52b0eb solid;
+  border-radius: 9rpx;
+  margin-left: 16rpx;
+}
+.disBottomCls{
+  display: flex;
+  align-items: center;
+}
+.disBottomCls>text{
+  color: #999999;
+  font-size: 24rpx;
+}
+.disBottomCls>text:nth-of-type(1){
+  flex-grow: 1;
+}
+.disBottomCls>image{
+  display: inline-block;
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 16rpx;
+}
+
+
+.profPostCls{
+  border: none;
+  font-size: 30rpx;
+  color: #ffc600;
+}
+.littlePost{
+  font-size: 24rpx;
+}
+.peopleDisGeadeCls{
+  color: #999999;
+  font-size: 24rpx;
+}
+
+
+.moreDiscussCls{
+  display: block;
+  padding-top: 30rpx;
+  width: 100%;
+  text-align: center;
+  color:#dd403b;
+  font-size: 32rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bottomHeight{
+  padding-top: 120rpx;
+  height: 0;
+}
+.buyTicket{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #dd403b;
+  color: #fff;
+  font-size: 36rpx;
+  padding: 30rpx 0;
+  text-align: center;
+  font-family: SimHei;
+}
