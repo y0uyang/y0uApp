@@ -5,29 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hotCity:["上海","北京","广州","深圳","武汉","天津","西安","成都"],
-    visitedCity:["成都","北京"]
+    hotCity: [{
+      city: "上海",
+      visited: true,
+    }, {
+      city: "北京",
+      visited: true,
+    }, {
+      city: "广州",
+      visited: false,
+    }, {
+      city: "深圳",
+      visited: false,
+    }, {
+      city: "武汉",
+      visited: false,
+    }, {
+      city: "天津",
+      visited: false,
+    }, {
+      city: "西安",
+      visited: false,
+    }, {
+      city: "成都",
+      visited: true,
+    }],
   },
 
-  changeCity(e){
-    let flag = true;
-    for (let city of this.data.visitedCity){
-      if (city == e.target.dataset.city){
-        flag = false;
-        break;
-      }
+  changeCity(e) {
+    let idx = e.target.dataset.city
+    let cityAry = this.data.hotCity;
+    cityAry[idx].visited = true;
+    let chooseCity = cityAry[idx].city;
+    this.setData({
+      hotCity: cityAry
+    })
+    let pages = getCurrentPages();
+    if (pages.length > 1) {
+      //上一个页面实例对象
+      let prePage = pages[pages.length - 2];
+      //关键在这里
+      prePage.changeCity(chooseCity)
     }
-    if (!e.target.dataset.location && flag){
-      this.setData({
-        visitedCity: [...this.data.visitedCity, e.target.dataset.city]
-      })
-    }
-    
     wx.switchTab({
       url: '/pages/movie/movie',
-      success(){
-        wx.setStorageSync("city", e.target.dataset.city)
-      }
     })
   }
 

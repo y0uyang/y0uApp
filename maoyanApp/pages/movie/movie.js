@@ -9,7 +9,7 @@ Page({
     currentTab:0,
     movieList:[],
     wantMovieList:[],
-    city:""
+    city:"成都"
   },
   /**
    * 生命周期函数--监听页面加载
@@ -23,7 +23,6 @@ Page({
         // ref: ["theatre"]
       },
       success: function (res) {
-        console.log(res.data)
         if (thisData.data.currentTab==0){
           thisData.setData({
             movieList : res.data
@@ -39,27 +38,10 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    let curCity = wx.getStorageSync("city")
+  changeCity(city){
     this.setData({
-      city: curCity
+      city: city
     })
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
   },
 
   //事件处理函数

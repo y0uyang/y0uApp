@@ -38,7 +38,7 @@
             <view wx:for="{{ item }}" wx:for-item="seat" wx:for-index="cur" wx:key="{{ index }}">
               <image catchtap='chooseSeat' wx:if="{{ seat.a == 1 && seat.b == 0 }}" data-row='{{ index }}' data-line='{{ cur }}' class='seat' src="./../../images/icon/seat_fff.png"  ></image>
               <image catchtap='chooseSeat' wx:if="{{ seat.a == 0 }}" data-row='{{ index }}' data-line='{{ cur }}' class='seat' src="" ></image>
-               <image catchtap='chooseSeat' wx:elif="{{ seat.b == 1 }}" data-row='{{ index }}' data-line='{{ cur }}' class='seat' src="./../../images/icon/seat_red.png"></image> 
+               <image wx:elif="{{ seat.b == 1 }}" data-row='{{ index }}' data-line='{{ cur }}' class='seat' src="./../../images/icon/seat_red.png"></image> 
                <image catchtap='chooseSeat' wx:elif="{{ seat.b == 2 }}" data-row='{{ index }}' data-line='{{ cur }}' class='seat' src="./../../images/icon/seat_green.png"></image> 
             </view>
           </view>
@@ -72,7 +72,7 @@
         <text>{{sessionMsg.price*chooseSeats.length}}元</text>
         <text>{{sessionMsg.price}}x{{chooseSeats.length}}</text>
       </view>
-      <text>确认选座</text>
+      <text bindtap='confirmBuy'>{{ chooseSeats.length > 0 ? confirmChoose : pleaseChoose }}</text>
     </view>
 
   </view>

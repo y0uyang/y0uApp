@@ -6,13 +6,13 @@
   <view class='locationCls'>
     <view>最近访问城市</view>
     <view>
-      <text bindtap='changeCity' data-city='{{item}}' data-location="yes" wx:for="{{visitedCity}}" wx:key="{{index}}">{{item}}</text>
+      <text bindtap='changeCity' data-city='{{index}}' wx:if="{{item.visited}}" wx:for="{{hotCity}}" wx:key="{{index}}">{{item.city}}</text>
     </view>
   </view>
   <view class='locationCls'>
     <view>热门城市</view>
     <view>
-      <text bindtap='changeCity' wx:for="{{hotCity}}" data-city='{{item}}' wx:key="{{index}}">{{item}}</text>
+      <text bindtap='changeCity' wx:for="{{hotCity}}" data-city='{{index}}' wx:key="{{index}}">{{item.city}}</text>
     </view>
   </view>
 

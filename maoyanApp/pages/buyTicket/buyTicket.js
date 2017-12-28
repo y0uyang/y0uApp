@@ -5,10 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pleaseChoose:"请先选座",
+    confirmChoose:"确认选座",
     sessionMsg:{},
     month:0,
     date:0,
     isToday:"",
+    beforeChange:[],
     seatsList:[],
     chooseSeats:[],
     theatreName:"",
@@ -22,6 +25,10 @@ Page({
     if (options.theOnlyId){
       this.setData({
         theOnlyId: options.theOnlyId
+      })
+    }else{
+      this.setData({
+        theOnlyId: wx.getStorageSync("theOnlyId")
       })
     }
     wx.request({
@@ -53,66 +60,21 @@ Page({
           title: res.data.movie[0].chineseName
         })
         this.setData({
+          sessionId:res.data._id,
           sessionMsg:res.data,
           month: sessionMonth,
           date: sessionDate,
           isToday:str,
+          beforeChange: res.data.videoHall[0].seat,
           seatsList:res.data.videoHall[0].seat,
-          theatreName: res.data.theatre[0].name
+          theatreName: res.data.theatre[0].name,
+          videoHallId:res.data.videoHall[0]._id
         })
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
   chooseSeat(e){
+    let that = this;
     //行
     let row = e.target.dataset.row ;
     //列
@@ -138,14 +100,14 @@ Page({
         content: '最多只能选择4个座位',
         success:(res) => {
           if (res.confirm) {
-            this.onLoad();
-            this.setData({
-              chooseSeats: []
+            that.setData({
+              chooseSeats: [],
+              seatsList: that.data.beforeChange
             })
           } else if (res.cancel) {
-            this.onLoad();
-            this.setData({
-              chooseSeats: []
+            that.setData({
+              chooseSeats: [],
+              seatsList: that.data.beforeChange
             })
           }
         }
@@ -163,4 +125,40 @@ Page({
       chooseSeats:newChoosedSeats
     })
   },
+  confirmBuy(){
+    let that = this;
+    let confirmSeatsList = this.data.seatsList;
+    for (let row in confirmSeatsList){
+      for (let line in confirmSeatsList[row]){
+        if (confirmSeatsList[row][line].b == 2){
+          confirmSeatsList[row][line].b = 1
+        }
+      }
+    }
+    wx.request({
+      url: "http://127.0.0.1:8088/videoHall/update",
+      data:{
+        _id: that.data.videoHallId,
+        seat: confirmSeatsList
+      },
+      success:(res)=>{
+         wx.request({
+          url: "http://127.0.0.1:8088/session/find",
+          data: {
+            _id: that.data.sessionId,
+            submitType: "findJoin",
+            ref: ["videoHall", "movie", "theatre"]
+          },
+          success: (res) => {
+            console.log(res)
+            that.setData({
+              seatsList: res.data.videoHall[0].seat,
+              chooseSeats: []
+            })
+          }
+        })
+      }
+    })
+   
+  }
 })

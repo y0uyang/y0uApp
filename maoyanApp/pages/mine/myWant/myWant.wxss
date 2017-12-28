@@ -11,6 +11,7 @@ page{
   background-color: #fff;
   display: flex;
   padding: 40rpx;
+  border-bottom: 1rpx solid #ccc;
 }
 .movieCls>image{
   width: 156rpx;
@@ -25,7 +26,7 @@ page{
 }
 .movieInfo text{
   color: #737373;
-  font-size: 32rpx;
+  font-size: 30rpx;
   margin: 0 6rpx;
 }
 .movieInfo>text:nth-of-type(1){
